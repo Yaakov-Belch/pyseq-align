@@ -23,8 +23,16 @@ cdef class NeedlemanWunsch:
         gap extend score
     no_start_gap_penalty : bool, default: False
         set this to `True` to remove gap penalties at the start of the alignment
+    no_start_gap_penalty_a : bool, default: False
+        set this to `True` to remove gap penalties at the start of the alignment, just `a`
+    no_start_gap_penalty_b : bool, default: False
+        set this to `True` to remove gap penalties at the start of the alignment, just `b`
     no_end_gap_penalty : bool, default: False
         set this to `True` to remove gap penalties at the end of the alignment
+    no_end_gap_penalty_a : bool, default: False
+        set this to `True` to remove gap penalties at the end of the alignment, just `a`
+    no_end_gap_penalty_b : bool, default: False
+        set this to `True` to remove gap penalties at the end of the alignment, just `b`
     no_gaps_in_a : bool, default: False
         disallow gaps in the first sequence
     no_gaps_in_b : bool, default: False
@@ -46,16 +54,21 @@ cdef class NeedlemanWunsch:
         gap_open: int = -4,
         gap_extend: int = -1,
         no_start_gap_penalty: bool = False,
+        no_start_gap_penalty_a: bool = False,
+        no_start_gap_penalty_b: bool = False,
         no_end_gap_penalty: bool = False,
+        no_end_gap_penalty_a: bool = False,
+        no_end_gap_penalty_b: bool = False,
         no_gaps_in_a: bool = False,
         no_gaps_in_b: bool = False,
         no_mismatches: bool = False,
         case_sensitive: bool = True,
     ):
-        print(123)
         self.scoring = Scoring(
             match, mismatch, substitution_matrix, gap_open, gap_extend,
-            no_start_gap_penalty, no_end_gap_penalty, no_gaps_in_a, no_gaps_in_b,
+            no_start_gap_penalty, no_start_gap_penalty_a, no_start_gap_penalty_b,
+            no_end_gap_penalty,   no_end_gap_penalty_a,   no_end_gap_penalty_b,
+            no_gaps_in_a, no_gaps_in_b,
             no_mismatches, case_sensitive
         )
 

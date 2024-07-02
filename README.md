@@ -1,6 +1,17 @@
 # pyseq-align
 Python interface for the [seq-align](https://github.com/noporpoise/seq-align) C library, written by Isaac Turner (@noporpoise).
 
+### Fork by Yaakov Belch:
+I expanded `no_start_gap_penalty` and `no_end_gap_penalty` to:
+`no_start_gap_penalty`, `no_start_gap_penalty_a`, `no_start_gap_penalty_b`,
+`no_end_gap_penalty`,   `no_end_gap_penalty_a`,   `no_end_gap_penalty_b`.
+
+The feature `no_start_gap_penalty_a` seems not to work, but `no_start_gap_penalty_b` works.
+The code is 100% symmetric for all these cases, but investigate `seq-align/src/alignment.c`
+where the comments say: `// Think carefully about which way round these are`
+
+The algorithm may not be symmetric.
+
 ## Installation
 ```
 pip install pyseq-align

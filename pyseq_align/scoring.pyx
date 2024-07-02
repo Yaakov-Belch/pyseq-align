@@ -13,7 +13,11 @@ cdef class Scoring:
         gap_open: int = -4,
         gap_extend: int = -1,
         no_start_gap_penalty: bool = False,
+        no_start_gap_penalty_a: bool = False,
+        no_start_gap_penalty_b: bool = False,
         no_end_gap_penalty: bool = False,
+        no_end_gap_penalty_a: bool = False,
+        no_end_gap_penalty_b: bool = False,
         no_gaps_in_a: bool = False,
         no_gaps_in_b: bool = False,
         no_mismatches: bool = False,
@@ -25,7 +29,9 @@ cdef class Scoring:
 
         scoring_init(
             <scoring_t*>(self._pointer), match, mismatch, gap_open, gap_extend,
-            no_start_gap_penalty, no_end_gap_penalty, no_gaps_in_a, no_gaps_in_b,
+            no_start_gap_penalty, no_start_gap_penalty_a, no_start_gap_penalty_b,
+            no_end_gap_penalty,   no_end_gap_penalty_a,   no_end_gap_penalty_b,
+            no_gaps_in_a, no_gaps_in_b,
             no_mismatches, case_sensitive
         )
 
@@ -71,7 +77,19 @@ cdef class Scoring:
     def no_start_gap_penalty(self): return self._pointer.no_start_gap_penalty
 
     @property
+    def no_start_gap_penalty_a(self): return self._pointer.no_start_gap_penalty_a
+
+    @property
+    def no_start_gap_penalty_b(self): return self._pointer.no_start_gap_penalty_b
+
+    @property
     def no_end_gap_penalty(self): return self._pointer.no_end_gap_penalty
+
+    @property
+    def no_end_gap_penalty_a(self): return self._pointer.no_end_gap_penalty_a
+
+    @property
+    def no_end_gap_penalty_b(self): return self._pointer.no_end_gap_penalty_b
 
     @property
     def no_gaps_in_a(self): return self._pointer.no_gaps_in_a
