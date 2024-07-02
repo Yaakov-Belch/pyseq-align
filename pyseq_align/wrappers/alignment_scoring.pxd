@@ -8,7 +8,11 @@ cdef extern from '../seq-align/src/alignment_scoring.h':
         int gap_open
         int gap_extend
         bool no_start_gap_penalty
+        bool no_start_gap_penalty_a
+        bool no_start_gap_penalty_b
         bool no_end_gap_penalty
+        bool no_end_gap_penalty_a
+        bool no_end_gap_penalty_b
         bool no_gaps_in_a
         bool no_gaps_in_b
         bool no_mismatches
@@ -25,7 +29,12 @@ cdef extern from '../seq-align/src/alignment_scoring.h':
 
     cdef void scoring_init(scoring_t* scoring, int match, int mismatch,
                       int gap_open, int gap_extend,
-                      bool no_start_gap_penalty, bool no_end_gap_penalty,
+                      bool no_start_gap_penalty,
+                      bool no_start_gap_penalty_a,
+                      bool no_start_gap_penalty_b,
+                      bool no_end_gap_penalty,
+                      bool no_end_gap_penalty_a,
+                      bool no_end_gap_penalty_b,
                       bool no_gaps_in_a, bool no_gaps_in_b,
                       bool no_mismatches, bool case_sensitive)
 

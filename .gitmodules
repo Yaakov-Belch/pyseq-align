@@ -1,3 +1,3 @@
 [submodule "pyseq_align/seq-align"]
 	path = pyseq_align/seq-align
-	url = https://github.com/noporpoise/seq-align.git
+	url = https://github.com/Yaakov-Belch/seq-align.git
