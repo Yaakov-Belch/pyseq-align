@@ -52,6 +52,7 @@ cdef class NeedlemanWunsch:
         no_mismatches: bool = False,
         case_sensitive: bool = True,
     ):
+        print(123)
         self.scoring = Scoring(
             match, mismatch, substitution_matrix, gap_open, gap_extend,
             no_start_gap_penalty, no_end_gap_penalty, no_gaps_in_a, no_gaps_in_b,
